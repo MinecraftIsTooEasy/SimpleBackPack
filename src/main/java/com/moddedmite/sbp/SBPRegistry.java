@@ -1,0 +1,35 @@
+package com.moddedmite.sbp;
+
+import huix.glacier.api.entrypoint.IGameRegistry;
+import huix.glacier.api.registry.MinecraftRegistry;
+import net.minecraft.Material;
+import net.xiaoyu233.fml.reload.utils.IdUtil;
+
+public class SBPRegistry implements IGameRegistry {
+
+    public static ItemBackpack backpackLeather;
+    public static ItemBackpack backpackCopper;
+    public static ItemBackpack backpackIron;
+    public static ItemBackpack backpackAncientMetal;
+    public static ItemBackpack backpackMithril;
+    public static ItemBackpack backpackAdamantium;
+
+    @Override
+    public void onGameRegistry() {
+        MinecraftRegistry registry = new MinecraftRegistry("simplebackpack");
+
+        backpackLeather = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_leather", 9);
+        backpackCopper = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_copper", 18);
+        backpackIron = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_iron", 27);
+        backpackAncientMetal = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_ancient_metal", 36);
+        backpackMithril = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_mithril", 45);
+        backpackAdamantium = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_adamantium", 54);
+
+        registry.registerItem("simplebackpack:backpack_leather", "backpack_leather", backpackLeather);
+        registry.registerItem("simplebackpack:backpack_copper", "backpack_copper", backpackCopper);
+        registry.registerItem("simplebackpack:backpack_iron", "backpack_iron", backpackIron);
+        registry.registerItem("simplebackpack:backpack_ancient_metal", "backpack_ancient_metal", backpackAncientMetal);
+        registry.registerItem("simplebackpack:backpack_mithril", "backpack_mithril", backpackMithril);
+        registry.registerItem("simplebackpack:backpack_adamantium", "backpack_adamantium", backpackAdamantium);
+    }
+}

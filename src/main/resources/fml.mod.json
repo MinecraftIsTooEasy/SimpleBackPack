@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "simplebackpack",
+  "version": "${version}",
+  "name": "SimpleBackPack",
+  "authors": [
+    "huanglanmu"
+  ],
+  "contact": {
+    "homepage": "https://minecraftistooeasy.github.io/",
+    "sources": "https://github.com/MinecraftIsTooEasy/fish-example-mod"
+  },
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.moddedmite.sbp.SimpleBackPack"
+    ],
+    "registry": [
+      "com.moddedmite.sbp.SBPRegistry"
+    ],
+    "baubles": [
+      "com.moddedmite.sbp.compat.BaubleImpl"
+    ]
+  },
+  "mixins": [
+    "simplebackpack.mixins.json"
+  ],
+  "depends": {
+    "fishmodloader": ">=3.4.0",
+    "minecraft": "1.6.4-mite",
+    "java": ">=17",
+    "rusted_iron_core": ">=1.3.5"
+  },
+  "suggests": {
+    "another-mod": "*"
+  },
+  "accessWidener": "simplebackpack.accesswidener"
+}

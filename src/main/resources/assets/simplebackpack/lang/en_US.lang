@@ -1,0 +1,13 @@
+itemGroup.SimpleBackPack=SimpleBackPack
+key.openBackpack=Open Backpack
+item.backpack_leather.name=Leather Backpack
+item.backpack_copper.name=Copper Backpack
+item.backpack_iron.name=Iron Backpack
+item.backpack_ancient_metal.name=Ancient Metal Backpack
+item.backpack_mithril.name=Mithril Backpack
+item.backpack_adamantium.name=Adamantium Backpack
+simplebackpack.openBackpack=Open Backpack
+config.name.simplebackpack.openBackpack=Open Backpack
+config.comment.simplebackpack.openBackpack=Open Backpack Hotkey
+simplebackpack.hotkeys.category.generic_hotkeys=Hotkeys
+config.menu.comment.simplebackpack=SimpleBackPack Config

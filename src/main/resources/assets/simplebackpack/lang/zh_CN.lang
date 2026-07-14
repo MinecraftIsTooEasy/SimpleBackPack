@@ -1,0 +1,13 @@
+itemGroup.SimpleBackPack=简易背包
+key.openBackpack=打开背包
+item.backpack_leather.name=皮革背包
+item.backpack_copper.name=铜背包
+item.backpack_iron.name=铁背包
+item.backpack_ancient_metal.name=远古金属背包
+item.backpack_mithril.name=秘银背包
+item.backpack_adamantium.name=艾德曼背包
+simplebackpack.openBackpack=打开背包
+config.name.simplebackpack.openBackpack=打开背包
+config.comment.simplebackpack.openBackpack=打开背包快捷键
+simplebackpack.hotkeys.category.generic_hotkeys=快捷键
+config.menu.comment.simplebackpack=简易背包配置
