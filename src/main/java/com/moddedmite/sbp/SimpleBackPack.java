@@ -13,6 +13,7 @@ public class SimpleBackPack implements ModInitializer {
     @Override
     public void onInitialize() {
         ModResourceManager.addResourcePackDomain(MOD_ID);
+        SBPConfigs.getInstance().load();
         this.registerRecipes();
         SBPKeybindings.register();
         SBPPackets.init();

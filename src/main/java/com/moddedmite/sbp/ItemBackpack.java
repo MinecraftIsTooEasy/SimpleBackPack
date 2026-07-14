@@ -1,5 +1,6 @@
 package com.moddedmite.sbp;
 
+import com.moddedmite.sbp.api.IServerPlayer;
 import net.minecraft.*;
 
 public class ItemBackpack extends Item {
@@ -22,7 +23,7 @@ public class ItemBackpack extends Item {
             ItemStack heldStack = player.getHeldItemStack();
             if (heldStack != null && heldStack.getItem() instanceof ItemBackpack) {
                 InventoryBackpack.currentlyOpenBackpack = heldStack;
-                player.displayGUIChestForMinecart(new InventoryBackpack(heldStack, (ItemBackpack) heldStack.getItem()));
+                ((IServerPlayer) player).sbp$displayBackpackGui(new InventoryBackpack(heldStack, (ItemBackpack) heldStack.getItem()));
             }
         }
         return true;

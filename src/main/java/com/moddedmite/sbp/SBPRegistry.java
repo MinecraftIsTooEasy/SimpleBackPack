@@ -18,12 +18,12 @@ public class SBPRegistry implements IGameRegistry {
     public void onGameRegistry() {
         MinecraftRegistry registry = new MinecraftRegistry("simplebackpack");
 
-        backpackLeather = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_leather", 9);
-        backpackCopper = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_copper", 18);
-        backpackIron = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_iron", 27);
-        backpackAncientMetal = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_ancient_metal", 36);
-        backpackMithril = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_mithril", 45);
-        backpackAdamantium = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_adamantium", 54);
+        backpackLeather = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_leather", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_LEATHER_SIZE));
+        backpackCopper = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_copper", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_COPPER_SIZE));
+        backpackIron = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_iron", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_IRON_SIZE));
+        backpackAncientMetal = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_ancient_metal", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_ANCIENT_METAL_SIZE));
+        backpackMithril = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_mithril", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_MITHRIL_SIZE));
+        backpackAdamantium = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_adamantium", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_ADAMANTIUM_SIZE));
 
         registry.registerItem("simplebackpack:backpack_leather", "backpack_leather", backpackLeather);
         registry.registerItem("simplebackpack:backpack_copper", "backpack_copper", backpackCopper);

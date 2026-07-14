@@ -11,3 +11,15 @@ config.name.simplebackpack.openBackpack=打开背包
 config.comment.simplebackpack.openBackpack=打开背包快捷键
 simplebackpack.hotkeys.category.generic_hotkeys=快捷键
 config.menu.comment.simplebackpack=简易背包配置
+config.name.simplebackpack.backpackLeatherSize=皮革背包容量
+config.comment.simplebackpack.backpackLeatherSize=皮革背包的格子数，<133为9的倍数，>=133为19的倍数（最小9，最大342）
+config.name.simplebackpack.backpackCopperSize=铜背包容量
+config.comment.simplebackpack.backpackCopperSize=铜背包的格子数，<133为9的倍数，>=133为19的倍数（最小9，最大342）
+config.name.simplebackpack.backpackIronSize=铁背包容量
+config.comment.simplebackpack.backpackIronSize=铁背包的格子数，<133为9的倍数，>=133为19的倍数（最小9，最大342）
+config.name.simplebackpack.backpackAncientMetalSize=远古金属背包容量
+config.comment.simplebackpack.backpackAncientMetalSize=远古金属背包的格子数，<133为9的倍数，>=133为19的倍数（最小9，最大342）
+config.name.simplebackpack.backpackMithrilSize=秘银背包容量
+config.comment.simplebackpack.backpackMithrilSize=秘银背包的格子数，<133为9的倍数，>=133为19的倍数（最小9，最大342）
+config.name.simplebackpack.backpackAdamantiumSize=艾德曼背包容量
+config.comment.simplebackpack.backpackAdamantiumSize=艾德曼背包的格子数，<133为9的倍数，>=133为19的倍数（最小9，最大342）

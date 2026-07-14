@@ -2,6 +2,7 @@ package com.moddedmite.sbp.network;
 
 import com.moddedmite.sbp.InventoryBackpack;
 import com.moddedmite.sbp.ItemBackpack;
+import com.moddedmite.sbp.api.IServerPlayer;
 import com.moddedmite.sbp.compat.BaubleImpl;
 import moddedmite.rustedironcore.network.Packet;
 import moddedmite.rustedironcore.network.PacketByteBuf;
@@ -23,7 +24,7 @@ public class C2SOpenBackpack implements Packet {
         ItemStack backpack = findBackpack(player);
         if (backpack != null && backpack.getItem() instanceof ItemBackpack) {
             InventoryBackpack.currentlyOpenBackpack = backpack;
-            player.displayGUIChestForMinecart(new InventoryBackpack(backpack, (ItemBackpack) backpack.getItem()));
+            ((IServerPlayer) player).sbp$displayBackpackGui(new InventoryBackpack(backpack, (ItemBackpack) backpack.getItem()));
         }
     }
 

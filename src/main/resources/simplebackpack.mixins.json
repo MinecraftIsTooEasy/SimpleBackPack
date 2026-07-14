@@ -6,7 +6,9 @@
 	"target": "DEFAULT",
 	"mixins": [
 		"SlotMixin",
-		"PlayerTickMixin"
+		"PlayerTickMixin",
+		"ServerPlayerMixin",
+		"ContainerMixin"
 	],
 	"client": [],
 	"injectors": {

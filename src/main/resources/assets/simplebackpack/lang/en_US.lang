@@ -11,3 +11,15 @@ config.name.simplebackpack.openBackpack=Open Backpack
 config.comment.simplebackpack.openBackpack=Open Backpack Hotkey
 simplebackpack.hotkeys.category.generic_hotkeys=Hotkeys
 config.menu.comment.simplebackpack=SimpleBackPack Config
+config.name.simplebackpack.backpackLeatherSize=Leather Backpack Size
+config.comment.simplebackpack.backpackLeatherSize=Slot count for Leather Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.name.simplebackpack.backpackCopperSize=Copper Backpack Size
+config.comment.simplebackpack.backpackCopperSize=Slot count for Copper Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.name.simplebackpack.backpackIronSize=Iron Backpack Size
+config.comment.simplebackpack.backpackIronSize=Slot count for Iron Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.name.simplebackpack.backpackAncientMetalSize=Ancient Metal Backpack Size
+config.comment.simplebackpack.backpackAncientMetalSize=Slot count for Ancient Metal Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.name.simplebackpack.backpackMithrilSize=Mithril Backpack Size
+config.comment.simplebackpack.backpackMithrilSize=Slot count for Mithril Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.name.simplebackpack.backpackAdamantiumSize=Adamantium Backpack Size
+config.comment.simplebackpack.backpackAdamantiumSize=Slot count for Adamantium Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
