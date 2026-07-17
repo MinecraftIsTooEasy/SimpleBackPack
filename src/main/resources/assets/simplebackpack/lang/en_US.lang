@@ -12,14 +12,29 @@ config.comment.simplebackpack.openBackpack=Open Backpack Hotkey
 simplebackpack.hotkeys.category.generic_hotkeys=Hotkeys
 config.menu.comment.simplebackpack=SimpleBackPack Config
 config.name.simplebackpack.backpackLeatherSize=Leather Backpack Size
-config.comment.simplebackpack.backpackLeatherSize=Slot count for Leather Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.comment.simplebackpack.backpackLeatherSize=Slot count for Leather Backpack, <133: multiple of 9, >=133: multiple of 19
 config.name.simplebackpack.backpackCopperSize=Copper Backpack Size
-config.comment.simplebackpack.backpackCopperSize=Slot count for Copper Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.comment.simplebackpack.backpackCopperSize=Slot count for Copper Backpack, <133: multiple of 9, >=133: multiple of 19
 config.name.simplebackpack.backpackIronSize=Iron Backpack Size
-config.comment.simplebackpack.backpackIronSize=Slot count for Iron Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.comment.simplebackpack.backpackIronSize=Slot count for Iron Backpack, <133: multiple of 9, >=133: multiple of 19
 config.name.simplebackpack.backpackAncientMetalSize=Ancient Metal Backpack Size
-config.comment.simplebackpack.backpackAncientMetalSize=Slot count for Ancient Metal Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.comment.simplebackpack.backpackAncientMetalSize=Slot count for Ancient Metal Backpack, <133: multiple of 9, >=133: multiple of 19
 config.name.simplebackpack.backpackMithrilSize=Mithril Backpack Size
-config.comment.simplebackpack.backpackMithrilSize=Slot count for Mithril Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.comment.simplebackpack.backpackMithrilSize=Slot count for Mithril Backpack, <133: multiple of 9, >=133: multiple of 19
 config.name.simplebackpack.backpackAdamantiumSize=Adamantium Backpack Size
-config.comment.simplebackpack.backpackAdamantiumSize=Slot count for Adamantium Backpack, <133: multiple of 9, >=133: multiple of 19 (min 9, max 342)
+config.comment.simplebackpack.backpackAdamantiumSize=Slot count for Adamantium Backpack, <133: multiple of 9, >=133: multiple of 19
+item.backpack_nickel.name=Nickel Backpack
+item.backpack_tungsten.name=Tungsten Steel Backpack
+item.backpack_uru.name=Uru Metal Backpack
+item.backpack_vibranium.name=Vibranium Backpack
+item.backpack_infinity.name=Infinity Backpack
+config.name.simplebackpack.backpackNickelSize=Nickel Backpack Size
+config.comment.simplebackpack.backpackNickelSize=Slot count for Nickel Backpack, <133: multiple of 9, >=133: multiple of 19 ( requires ITF-Reborn)
+config.name.simplebackpack.backpackTungstenSize=Tungsten Steel Backpack Size
+config.comment.simplebackpack.backpackTungstenSize=Slot count for Tungsten Steel Backpack, <133: multiple of 9, >=133: multiple of 19 ( requires ITF-Reborn)
+config.name.simplebackpack.backpackUruSize=Uru Metal Backpack Size
+config.comment.simplebackpack.backpackUruSize=Slot count for Uru Metal Backpack, <133: multiple of 9, >=133: multiple of 19 (requires ITF-Reborn)
+config.name.simplebackpack.backpackVibraniumSize=Vibranium Backpack Size
+config.comment.simplebackpack.backpackVibraniumSize=Slot count for Vibranium Backpack, <133: multiple of 9, >=133: multiple of 19 (requires MITE-ITE)
+config.name.simplebackpack.backpackInfinitySize=Infinity Backpack Size
+config.comment.simplebackpack.backpackInfinitySize=Slot count for Infinity Backpack, <133: multiple of 9, >=133: multiple of 19 (requires BeyondExtreme)

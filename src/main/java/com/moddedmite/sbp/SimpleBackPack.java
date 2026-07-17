@@ -1,11 +1,13 @@
 package com.moddedmite.sbp;
 
+import com.moddedmite.sbp.compat.SBPRecipeCompat;
 import com.moddedmite.sbp.network.SBPPackets;
 import moddedmite.rustedironcore.api.event.Handlers;
 import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.*;
 import net.xiaoyu233.fml.ModResourceManager;
+import net.xiaoyu233.fml.reload.event.MITEEvents;
 
 public class SimpleBackPack implements ModInitializer {
     public static final String MOD_ID = "simplebackpack";
@@ -17,6 +19,8 @@ public class SimpleBackPack implements ModInitializer {
         this.registerRecipes();
         SBPKeybindings.register();
         SBPPackets.init();
+        // 注册 FML 事件总线监听器，用于在 ItemRegistryEvent 触发时注册兼容背包物品（参考 UtilityCraft）
+        MITEEvents.MITE_EVENT_BUS.register(new SBPFMLEvents());
     }
 
     private void registerRecipes() {
@@ -66,5 +70,8 @@ public class SimpleBackPack implements ModInitializer {
                 Character.valueOf('I'), Item.ingotAdamantium,
                 Character.valueOf('B'), SBPRegistry.backpackMithril
         ).extendsNBT();
+
+        // 兼容背包配方（仅当对应 mod 加载时注册）
+        SBPRecipeCompat.registerCompatRecipes(event);
     }
 }
