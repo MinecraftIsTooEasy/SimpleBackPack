@@ -46,6 +46,24 @@ public final class SBPRecipeCompat {
                     Character.valueOf('B'), SBPRegistry.backpackAdamantium
             ).extendsNBT();
         }
+
+        // 跨体系升级：兼容背包 → 主背包（使用 vanilla 材料）
+        if (SBPRegistry.backpackNickel != null) {
+            event.registerShapedRecipe(
+                    new ItemStack(SBPRegistry.backpackAncientMetal, 1), true,
+                    "III", "IBI", "III",
+                    Character.valueOf('I'), Item.ingotAncientMetal,
+                    Character.valueOf('B'), SBPRegistry.backpackNickel
+            ).extendsNBT();
+        }
+        if (SBPRegistry.backpackTungsten != null) {
+            event.registerShapedRecipe(
+                    new ItemStack(SBPRegistry.backpackAdamantium, 1), true,
+                    "III", "IBI", "III",
+                    Character.valueOf('I'), Item.ingotAdamantium,
+                    Character.valueOf('B'), SBPRegistry.backpackTungsten
+            ).extendsNBT();
+        }
     }
 
     private static void registerIteCompat(CraftingRecipeRegisterEvent event) {

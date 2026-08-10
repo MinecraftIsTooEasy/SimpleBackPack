@@ -1,7 +1,6 @@
 package com.moddedmite.sbp;
 
 import fi.dy.masa.malilib.config.SimpleConfigs;
-import fi.dy.masa.malilib.config.options.ConfigHotkey;
 import fi.dy.masa.malilib.config.options.ConfigInteger;
 
 import java.util.List;
@@ -9,7 +8,6 @@ import java.util.List;
 public class SBPConfigs extends SimpleConfigs {
     public static final int MAX_SIZE = 608;
     public static final int LARGE_THRESHOLD = 133;
-    public static final ConfigHotkey OPEN_BACKPACK;
     public static final ConfigInteger BACKPACK_LEATHER_SIZE;
     public static final ConfigInteger BACKPACK_COPPER_SIZE;
     public static final ConfigInteger BACKPACK_IRON_SIZE;
@@ -25,7 +23,6 @@ public class SBPConfigs extends SimpleConfigs {
     private static final SBPConfigs INSTANCE;
 
     static {
-        OPEN_BACKPACK = new ConfigHotkey("simplebackpack.openBackpack", "B", "打开背包快捷键");
         BACKPACK_LEATHER_SIZE = new ConfigInteger("simplebackpack.backpackLeatherSize", 9, 9, MAX_SIZE, false, "皮革背包的格子数（<=133为9的倍数，>133为19的倍数）");
         BACKPACK_COPPER_SIZE = new ConfigInteger("simplebackpack.backpackCopperSize", 18, 9, MAX_SIZE, false, "铜背包的格子数（<=133为9的倍数，>133为19的倍数）");
         BACKPACK_IRON_SIZE = new ConfigInteger("simplebackpack.backpackIronSize", 27, 9, MAX_SIZE, false, "铁背包的格子数（<=133为9的倍数，>133为19的倍数）");
@@ -42,7 +39,7 @@ public class SBPConfigs extends SimpleConfigs {
 
     private SBPConfigs() {
         super(SimpleBackPack.MOD_ID,
-                List.of(OPEN_BACKPACK),
+                List.of(),
                 List.of(BACKPACK_LEATHER_SIZE, BACKPACK_COPPER_SIZE, BACKPACK_IRON_SIZE,
                         BACKPACK_ANCIENT_METAL_SIZE, BACKPACK_MITHRIL_SIZE, BACKPACK_ADAMANTIUM_SIZE,
                         BACKPACK_NICKEL_SIZE, BACKPACK_TUNGSTEN_SIZE, BACKPACK_URU_SIZE,

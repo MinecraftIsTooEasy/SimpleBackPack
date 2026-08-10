@@ -1,7 +1,9 @@
 package com.moddedmite.sbp;
 
+import com.moddedmite.sbp.client.SBPKeyHandler;
 import com.moddedmite.sbp.compat.SBPRecipeCompat;
 import com.moddedmite.sbp.network.SBPPackets;
+import fi.dy.masa.malilib.config.ConfigManager;
 import moddedmite.rustedironcore.api.event.Handlers;
 import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
 import net.fabricmc.api.ModInitializer;
@@ -16,8 +18,10 @@ public class SimpleBackPack implements ModInitializer {
     public void onInitialize() {
         ModResourceManager.addResourcePackDomain(MOD_ID);
         SBPConfigs.getInstance().load();
+        ConfigManager.getInstance().registerConfig(SBPConfigs.getInstance());
         this.registerRecipes();
-        SBPKeybindings.register();
+        // 通过 RustedIronCore 的 KeybindingHandler 注册"打开背包"按键（默认 B），并在 BetterGameSetting 中分组
+        new SBPKeyHandler();
         SBPPackets.init();
         // 注册 FML 事件总线监听器，用于在 ItemRegistryEvent 触发时注册兼容背包物品（参考 UtilityCraft）
         MITEEvents.MITE_EVENT_BUS.register(new SBPFMLEvents());
