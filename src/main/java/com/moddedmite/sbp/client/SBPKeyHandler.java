@@ -2,73 +2,47 @@ package com.moddedmite.sbp.client;
 
 import com.moddedmite.sbp.network.C2SOpenBackpack;
 import moddedmite.rustedironcore.api.event.Handlers;
-import moddedmite.rustedironcore.api.event.listener.IKeybindingListener;
 import moddedmite.rustedironcore.api.event.listener.ITickListener;
-import moddedmite.rustedironcore.keybinding.KeyBindingExtra;
+import moddedmite.rustedironcore.api.keybinding.KeybindingV1;
 import moddedmite.rustedironcore.network.Network;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.KeyBinding;
 import net.minecraft.Minecraft;
+import net.minecraft.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 
-import java.lang.reflect.Method;
-import java.util.function.Consumer;
-
 /**
- * 客户端按键处理器：通过 RustedIronCore 的 KeybindingHandler 注册"打开背包"按键（默认 B），
- * 在 TickHandler 中轮询按键状态并边沿检测触发发包。
- * 同时通过反射向 BetterGameSetting 注册按键分组，使按键在 BGS 控制界面中归类显示。
- * 参考 BearGrylls 的 EatKeyHandler 和 VeinMiner 的 ActivateMinerKeybindManager 实现。
+ * 客户端按键处理器：通过 RustedIronCore 1.5.7 的 KeybindingHandler 注册"打开背包"按键（默认 B）。
+ * 使用 KeybindingV1 + 自定义 Category，按键会自动在 BetterGameSetting 控制界面中分组显示。
+ * 在 TickHandler 中用 consumeClick() 边沿检测触发发包。
  */
 @Environment(EnvType.CLIENT)
-public class SBPKeyHandler implements IKeybindingListener, ITickListener {
+public class SBPKeyHandler implements ITickListener {
 
     /** B 键的 LWJGL 键码 */
     private static final int KEY_B = 48;
-    private static final String KEY_CATEGORY = "simplebackpack.key.category";
 
-    public final KeyBindingExtra openBackpack;
-    private boolean wasPressed = false;
+    /** 自定义按键分类，在 BetterGameSetting 中作为独立分组显示 */
+    private static final KeybindingV1.Category BACKPACK_CATEGORY =
+            KeybindingV1.Category.register(new ResourceLocation("simplebackpack", "backpack"));
+
+    public final KeybindingV1 openBackpack;
 
     public SBPKeyHandler() {
-        this.openBackpack = new KeyBindingExtra("key.simplebackpack.open", KEY_B, KEY_CATEGORY);
-        this.registerBetterGameSettingCategory();
-        Handlers.Keybinding.register(this);
+        this.openBackpack = new KeybindingV1("key.simplebackpack.open", KEY_B, BACKPACK_CATEGORY);
+        Handlers.Keybinding.register(event -> event.register(this.openBackpack));
         Handlers.Tick.register(this);
-    }
-
-    /**
-     * 通过反射向 BetterGameSetting 注册按键分类，使按键在 BGS 控制界面中分组显示。
-     * 使用反射避免对 BetterGameSetting 硬依赖（未安装时跳过）。
-     */
-    private void registerBetterGameSettingCategory() {
-        try {
-            Class<?> bgsClass = Class.forName("moddedmite.xylose.bettergamesetting.client.KeyBindingExtra");
-            Method method = bgsClass.getMethod("setKeyKeyCategory", String.class, String.class);
-            method.invoke(null, this.openBackpack.getKeyDescription(), this.openBackpack.getKeyCategory());
-        } catch (Throwable ignored) {
-            // BetterGameSetting 未安装，按键将显示在未分类组
-        }
-    }
-
-    @Override
-    public void onKeybindingRegister(Consumer<KeyBinding> registry) {
-        registry.accept(this.openBackpack);
     }
 
     @Override
     public void onClientTick(Minecraft mc) {
-        if (mc.thePlayer == null || mc.currentScreen != null) {
-            this.wasPressed = false;
+        if (mc.thePlayer == null) {
             return;
         }
-        boolean pressed = this.openBackpack.pressed;
-        // 边沿检测：仅在按下瞬间触发一次，避免持续按住时重复发包
-        if (pressed && !this.wasPressed) {
+        // consumeClick() 自带边沿检测（基于 pressTime），仅在无 GUI 时发包
+        if (this.openBackpack.consumeClick() && mc.currentScreen == null) {
             Network.sendToServer(new C2SOpenBackpack());
         }
-        this.wasPressed = pressed;
     }
 
     // --- 未使用的 ITickListener 方法 ---

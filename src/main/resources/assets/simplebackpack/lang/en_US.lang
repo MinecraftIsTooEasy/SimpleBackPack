@@ -1,6 +1,7 @@
 itemGroup.SimpleBackPack=SimpleBackPack
 key.simplebackpack.open=Open Backpack
 simplebackpack.key.category=Simple Backpack
+key.categories.simplebackpack.backpack=Simple Backpack
 item.backpack_leather.name=Leather Backpack
 item.backpack_copper.name=Copper Backpack
 item.backpack_iron.name=Iron Backpack

@@ -1,6 +1,7 @@
 itemGroup.SimpleBackPack=简易背包
 key.simplebackpack.open=打开背包
 simplebackpack.key.category=简单背包
+key.categories.simplebackpack.backpack=简单背包
 item.backpack_leather.name=皮革背包
 item.backpack_copper.name=铜背包
 item.backpack_iron.name=铁背包

@@ -18,19 +18,19 @@ public final class SBPCompat {
 
     public static void registerCompatItems(ItemRegistryEvent event) {
         if (SBPModChecker.HAS_ITFRB) {
-            SBPRegistry.backpackNickel = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_nickel", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_NICKEL_SIZE));
-            SBPRegistry.backpackTungsten = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_tungsten", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_TUNGSTEN_SIZE));
-            SBPRegistry.backpackUru = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_uru", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_URU_SIZE));
+            SBPRegistry.backpackNickel = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_nickel", () -> SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_NICKEL_SIZE));
+            SBPRegistry.backpackTungsten = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_tungsten", () -> SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_TUNGSTEN_SIZE));
+            SBPRegistry.backpackUru = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_uru", () -> SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_URU_SIZE));
             event.register("simplebackpack", "simplebackpack:backpack_nickel", "backpack_nickel", SBPRegistry.backpackNickel);
             event.register("simplebackpack", "simplebackpack:backpack_tungsten", "backpack_tungsten", SBPRegistry.backpackTungsten);
             event.register("simplebackpack", "simplebackpack:backpack_uru", "backpack_uru", SBPRegistry.backpackUru);
         }
         if (SBPModChecker.HAS_ITE) {
-            SBPRegistry.backpackVibranium = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_vibranium", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_VIBRANIUM_SIZE));
+            SBPRegistry.backpackVibranium = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_vibranium", () -> SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_VIBRANIUM_SIZE));
             event.register("simplebackpack", "simplebackpack:backpack_vibranium", "backpack_vibranium", SBPRegistry.backpackVibranium);
         }
         if (SBPModChecker.HAS_BEX) {
-            SBPRegistry.backpackInfinity = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_infinity", SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_INFINITY_SIZE));
+            SBPRegistry.backpackInfinity = new ItemBackpack(IdUtil.getNextItemID(), Material.stone, "simplebackpack:backpack_infinity", () -> SBPConfigs.getValidatedSize(SBPConfigs.BACKPACK_INFINITY_SIZE));
             event.register("simplebackpack", "simplebackpack:backpack_infinity", "backpack_infinity", SBPRegistry.backpackInfinity);
         }
     }

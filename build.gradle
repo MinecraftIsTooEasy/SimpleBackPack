@@ -47,17 +47,13 @@ dependencies {
     implementation "com.github.MinecraftIsTooEasy:FastUtil:8.5.12"
     implementation "com.github.MinecraftIsTooEasy:ManyLib:2.3.0"
     implementation "com.github.MinecraftIsTooEasy:ModMenu:10.1.1"
-    implementation "com.github.MinecraftIsTooEasy:RustedIronCore:1.5.5"
-    localRuntime "com.github.MinecraftIsTooEasy:BetterGameSetting:1.4.0.1"
+    implementation "com.github.MinecraftIsTooEasy:RustedIronCore:1.5.6"
     implementation "com.github.MinecraftIsTooEasy:Baubles:1.1.2"
-    implementation "com.github.MinecraftIsTooEasy:Extreme:0.1.6.12"
-    implementation "com.github.MinecraftIsTooEasy:MITE-ITE:2.0.27"
-    implementation "com.github.MinecraftIsTooEasy:BeyondExtreme:3.0.8"
-    implementation "com.github.MinecraftIsTooEasy:MITE-ITF-Reborn:17.2.28"
-
-    // To add strong dependencies, use "implementation" like above
-    // To compile mod integrations(e.g. ModMenu), use "compileOnly"
-    // To add mods for running client, use "localRuntime"
+    compileOnly "com.github.MinecraftIsTooEasy:Extreme:0.1.6.12"
+    compileOnly "com.github.MinecraftIsTooEasy:MITE-ITE:2.0.27"
+    compileOnly "com.github.MinecraftIsTooEasy:NewShop:1.1.0"
+    compileOnly "com.github.MinecraftIsTooEasy:BeyondExtreme:3.0.8"
+    compileOnly "com.github.MinecraftIsTooEasy:MITE-ITF-Reborn:17.2.28"
 }
 
 def fmlResolvedFile = configurations.fml.files.iterator().next()

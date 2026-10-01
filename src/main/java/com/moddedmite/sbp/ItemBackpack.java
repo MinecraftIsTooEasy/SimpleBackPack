@@ -3,18 +3,22 @@ package com.moddedmite.sbp;
 import com.moddedmite.sbp.api.IServerPlayer;
 import net.minecraft.*;
 
-public class ItemBackpack extends Item {
-    private final int inventorySize;
+import java.util.function.IntSupplier;
 
-    public ItemBackpack(int id, Material material, String texture, int size) {
+public class ItemBackpack extends Item {
+    // 惰性读取配置：物品注册时机可能早于配置文件加载（生产环境中 Item.<clinit> 先于 main 入口点），
+    // 因此不能在构造时固化大小，必须在每次使用时动态读取
+    private final IntSupplier sizeSupplier;
+
+    public ItemBackpack(int id, Material material, String texture, IntSupplier sizeSupplier) {
         super(id, material, texture);
-        this.inventorySize = size;
+        this.sizeSupplier = sizeSupplier;
         this.setMaxStackSize(1);
         this.setCreativeTab(SBPCreativeTab.BACKPACK_TAB);
     }
 
     public int getInventorySize() {
-        return this.inventorySize;
+        return this.sizeSupplier.getAsInt();
     }
 
     @Override
