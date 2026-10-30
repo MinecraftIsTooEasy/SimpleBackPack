@@ -1,6 +1,8 @@
 package com.moddedmite.sbp;
 
+import com.moddedmite.sbp.compat.BaubleImpl;
 import net.minecraft.*;
+import net.xiaoyu233.fml.FishModLoader;
 
 public class InventoryBackpack implements IInventory {
     public static ItemStack currentlyOpenBackpack = null;
@@ -114,7 +116,19 @@ public class InventoryBackpack implements IInventory {
 
     @Override
     public boolean isUseableByPlayer(EntityPlayer player) {
-        return true;
+        // 背包仍在玩家身上（主物品栏/快捷栏或 Baubles 背部槽）时才保持可交互；
+        // 一旦丢失，服务端 ServerPlayer.onUpdate 会因 canInteractWith 失败而自动关闭界面
+        for (ItemStack stack : player.inventory.mainInventory) {
+            if (stack == this.backpackStack) {
+                return true;
+            }
+        }
+        if (FishModLoader.hasMod("baubles")) {
+            ItemStack backStack = BaubleImpl.getBackStack(player);
+            return backStack != null
+                    && ItemStack.areItemStacksEqual(backStack, this.backpackStack, true, false, false, false);
+        }
+        return false;
     }
 
     @Override
